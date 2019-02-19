@@ -12,21 +12,20 @@
 #!!#
 ########################################################################################################################
 
-namespace: cs_demo.content.library.demo.aos.test
+namespace: io.cloudslang.demo.aos.tools
 
 operation:
   name: extract_filename
 
   inputs:
-    - input_1
-    - input_2
+    - url
 
   python_action:
     script: |
+      filename = url[url.rfind("/")+1:]
 
   outputs:
-    - output_1
+    - filename: ${filename}
     
   results:
-    - SUCCESS: ${returnCode == '0'}
-    - FAILURE
+    - SUCCESS
